@@ -27,7 +27,13 @@ _global_script_class_icons={
 [application]
 
 config/name="classic-fps-prototype"
+run/main_scene="res://levels/TestLevel.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
