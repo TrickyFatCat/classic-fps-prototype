@@ -1,2 +1,2 @@
 class_name Entity
-extends Node
+extends KinematicBody
