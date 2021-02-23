@@ -15,6 +15,6 @@ func _init() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		camera.rotation_degrees.x -= mouse_sens * event.get_relative().x
-		camera.rotation_degrees.y -= mouse_sens * event.get_relative().y
+		camera.rotation_degrees.x -= mouse_sens * event.get_relative().y
+		camera.rotation_degrees.y -= mouse_sens * event.get_relative().x
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, CAM_ROT_MIN, CAM_ROT_MAX)
