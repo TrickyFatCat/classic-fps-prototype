@@ -39,13 +39,15 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var current_move_direction : Vector3 = _move_direction
 	
-	if _move_direction == Vector3.ZERO and (abs(velocity.x) != 0 or abs(velocity.z) != 0):
-		current_move_direction = velocity.normalized()
+	#if _move_direction == Vector3.ZERO and (abs(velocity.x) != 0 or abs(velocity.z) != 0):
+		#current_move_direction = velocity.normalized()
 	
 	if not ignore_rotation:
 		current_move_direction = current_move_direction.rotated(Vector3.UP, rotation.y)
 	var drag_vec : Vector3 = Vector3(drag, 0, drag)
 	velocity += acceleration * current_move_direction - velocity * drag_vec + gravity * Vector3.DOWN * delta
+	velocity.x = clamp(velocity.x, -speed_max, speed_max)
+	velocity.z = clamp(velocity.z, -speed_max, speed_max)
 	velocity = move_and_slide(velocity, Vector3.UP)
 
 
@@ -57,7 +59,7 @@ func _rotate_camera(event: InputEvent) -> void:
 
 
 func _calculate_move_direction() -> void:
-	_move_direction.x = Input.get_action_strength("move_left") - Input.get_action_strength("move_right")
+	_move_direction.x = Input.get_action_strength("move_right") + Input.get_action_strength("move_left")
 	_move_direction.z = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 	_move_direction = _move_direction.normalized()
 
