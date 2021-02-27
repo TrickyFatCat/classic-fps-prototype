@@ -1,10 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://assets/shaders/shd_grid_material.tres" type="Shader" id=1]
 [ext_resource path="res://assets/textures/tex_grid_orange.png" type="Texture" id=2]
 
 [resource]
-resource_local_to_scene = true
-shader = ExtResource( 1 )
-shader_param/UV_scale = Vector3( 1, 1, 0 )
-shader_param/GridTexture = ExtResource( 2 )
+flags_world_triplanar = true
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
