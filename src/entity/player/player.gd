@@ -10,7 +10,7 @@ var velocity : Vector3 = Vector3.ZERO
 var snap_vec : Vector3
 var is_jumping = false
 
-export var acceleration : float = 250.0
+export var acceleration : float = 500.0
 export var speed_max : float = 25.0
 export var ground_friction : float = 100.0
 export var air_friction : float = 25.0
