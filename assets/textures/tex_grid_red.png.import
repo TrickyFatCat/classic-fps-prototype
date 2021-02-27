@@ -2,28 +2,26 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/tex_grid_red.png-7cffcdc1b46fc4580d2734a8ee0c41f2.s3tc.stex"
-path.etc2="res://.import/tex_grid_red.png-7cffcdc1b46fc4580d2734a8ee0c41f2.etc2.stex"
+path="res://.import/tex_grid_red.png-7cffcdc1b46fc4580d2734a8ee0c41f2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/tex_grid_red.png"
-dest_files=[ "res://.import/tex_grid_red.png-7cffcdc1b46fc4580d2734a8ee0c41f2.s3tc.stex", "res://.import/tex_grid_red.png-7cffcdc1b46fc4580d2734a8ee0c41f2.etc2.stex" ]
+dest_files=[ "res://.import/tex_grid_red.png-7cffcdc1b46fc4580d2734a8ee0c41f2.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=true
-flags/filter=true
-flags/mipmaps=true
+flags/repeat=1
+flags/filter=false
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
