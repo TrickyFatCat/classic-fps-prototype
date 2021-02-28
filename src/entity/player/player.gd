@@ -9,6 +9,7 @@ var _player_direction : Vector3 = Vector3.ZERO
 var velocity : Vector3 = Vector3.ZERO
 var snap_vec : Vector3
 var is_jumping = false
+var health_node : BaseResource
 
 export var acceleration : float = 500.0
 export var speed_max : float = 25.0
@@ -18,12 +19,16 @@ export var jump_force : float = 25.0
 export var gravity : float = 60.0
 export var mouse_sens : float = 0.1
 export var ignore_rotation : bool = false
+export var health_max = 100;
 
 onready var camera : Camera = $Camera
 
 
 func _init() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	health_node = BaseResource.new(health_max);
+	health_node.name = "HealthPoints"
+	add_child(health_node);
 
 
 func _input(event: InputEvent) -> void:

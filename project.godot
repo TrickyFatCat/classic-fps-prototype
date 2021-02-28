@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "BaseResource",
+"language": "GDScript",
+"path": "res://src/base_resource/base_resource.gd"
+}, {
 "base": "KinematicBody",
 "class": "Entity",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/entity/player/player.gd"
 } ]
 _global_script_class_icons={
+"BaseResource": "",
 "Entity": "",
 "Player": ""
 }
