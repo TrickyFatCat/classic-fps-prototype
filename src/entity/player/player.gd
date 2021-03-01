@@ -16,6 +16,7 @@ export var ground_friction : float = 12.0
 export var air_friction : float = 1.5
 export var jump_force : float = 25.0
 export var gravity : float = 60.0
+export var air_control_factor : float = 0.1
 export var mouse_sens : float = 0.1
 export var ignore_rotation : bool = false
 export var health_max = 100;
@@ -46,8 +47,6 @@ func _physics_process(delta: float) -> void:
 	_apply_gravity()
 	var velocity = _velocity_horizontal + _velocity_vertical
 	move_and_slide(velocity, Vector3.UP)
-	
-	$Label.text = String(velocity)
 
 
 func _rotate_camera(event: InputEvent) -> void:
@@ -67,10 +66,10 @@ func _calculate_horizontal_velocity(direction: Vector3) -> void:
 	var velocity_factor : float
 	
 	if direction != Vector3.ZERO:
-		velocity_factor = acceleration
+		velocity_factor = acceleration if is_on_floor() else acceleration * air_control_factor
 	else:
-		velocity_factor = ground_friction if is_on_floor() else air_friction
-		
+		velocity_factor = ground_friction if is_on_floor() else air_friction * air_control_factor
+	
 	_velocity_horizontal = _velocity_horizontal.linear_interpolate(direction * speed_max, velocity_factor * get_physics_process_delta_time())
 
 
