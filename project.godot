@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/entity/player/player.gd"
+}, {
+"base": "Reference",
+"class": "WeaponController",
+"language": "GDScript",
+"path": "res://src/weapons/weapon_controller.gd"
 } ]
 _global_script_class_icons={
 "BaseResource": "",
 "Entity": "",
-"Player": ""
+"Player": "",
+"WeaponController": ""
 }
 
 [application]
