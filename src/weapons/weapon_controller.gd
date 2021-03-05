@@ -6,9 +6,7 @@ enum Weapon {
 	PISTOL,
 	MACHINEGUN,
 	SHOTGUN,
-	PLASMAGUN,
-	ROCKETLAUNCHER,
-	RAILGUN
+	ROCKETLAUNCHER
 }
 
 var weapon_slots : Dictionary = {
@@ -16,9 +14,7 @@ var weapon_slots : Dictionary = {
 	Weapon.PISTOL: true,
 	Weapon.MACHINEGUN: false,
 	Weapon.SHOTGUN: false,
-	Weapon.PLASMAGUN: false,
-	Weapon.ROCKETLAUNCHER: false,
-	Weapon.RAILGUN: false,
+	Weapon.ROCKETLAUNCHER: false
 }
 
 var slot_current : int = 0

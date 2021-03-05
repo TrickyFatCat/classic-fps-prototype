@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/entity/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/crosshairs/img_crosshair.png" type="Texture" id=2]
+[ext_resource path="res://src/weapons/weapon_controller.gd" type="Script" id=3]
+[ext_resource path="res://assets/materials/mat_grid_orange.tres" type="Material" id=4]
+[ext_resource path="res://assets/materials/mat_grid_white.tres" type="Material" id=5]
+[ext_resource path="res://assets/materials/mat_grid_purple.tres" type="Material" id=6]
+[ext_resource path="res://assets/materials/mat_grid_red.tres" type="Material" id=7]
+[ext_resource path="res://assets/materials/mat_grid_grey.tres" type="Material" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.5, 0.5, 3 )
 
 [node name="Player" type="KinematicBody"]
 collision_layer = 2
@@ -24,6 +33,39 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
 keep_aspect = 0
 current = true
 fov = 90.0
+
+[node name="WeaponController" type="Spatial" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.75, 0 )
+script = ExtResource( 3 )
+
+[node name="Knife" type="MeshInstance" parent="Camera/WeaponController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07219, -1.17842 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = ExtResource( 5 )
+
+[node name="Pistol" type="MeshInstance" parent="Camera/WeaponController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07219, -1.17842 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = ExtResource( 7 )
+
+[node name="Machinegun" type="MeshInstance" parent="Camera/WeaponController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07219, -1.17842 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
+
+[node name="Shotgun" type="MeshInstance" parent="Camera/WeaponController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07219, -1.17842 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = ExtResource( 8 )
+
+[node name="Rocketlauncher" type="MeshInstance" parent="Camera/WeaponController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07219, -1.17842 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
 
 [node name="Crosshair" type="TextureRect" parent="."]
 anchor_right = 1.0
