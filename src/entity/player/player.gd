@@ -11,7 +11,6 @@ var _player_direction : Vector3 = Vector3.ZERO
 var _velocity_horizontal : Vector3 = Vector3.ZERO
 var _velocity_vertical : Vector3 = Vector3.ZERO
 var _is_on_ground : bool = true
-
 var health_node : BaseResource
 
 export var acceleration : float = 15.0
@@ -26,6 +25,8 @@ export var ignore_rotation : bool = false
 export var health_max = 100;
 
 onready var camera : Camera = $Camera
+onready var weapon_controller : WeaponController = $Camera/WeaponController
+
 
 
 func _init() -> void:
@@ -38,9 +39,29 @@ func _init() -> void:
 
 func _input(event: InputEvent) -> void:
 	_rotate_camera(event)
-	if event.is_action_pressed("jump"):
+	
+	if event.is_action_pressed("weapon_0"):
+		weapon_controller.switch_to_weapon_slot(weapon_controller.WeaponSlot.KNIFE)
 		return
-		_apply_jump()
+	elif event.is_action_pressed("weapon_1"):
+		weapon_controller.switch_to_weapon_slot(weapon_controller.WeaponSlot.PISTOL)
+		return
+	elif event.is_action_pressed("weapon_2"):
+		weapon_controller.switch_to_weapon_slot(weapon_controller.WeaponSlot.MACHINEGUN)
+		return
+	elif event.is_action_pressed("weapon_3"):
+		weapon_controller.switch_to_weapon_slot(weapon_controller.WeaponSlot.SHOTGUN)
+		return
+	elif event.is_action_pressed("weapon_4"):
+		weapon_controller.switch_to_weapon_slot(weapon_controller.WeaponSlot.ROCKETLAUNCHER)
+		return
+	
+	if event.is_action_pressed("switch_next_weapon"):
+		weapon_controller.switch_to_next_weapon()
+		return
+	elif event.is_action_pressed("switch_previous_weapon"):
+		weapon_controller.switch_to_previous_weapon()
+		return
 
 
 func _process(delta: float) -> void:
