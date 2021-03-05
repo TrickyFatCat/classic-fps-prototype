@@ -31,7 +31,6 @@ func _ready() -> void:
 
 func switch_to_next_weapon() -> void:
 	slot_current = (slot_current + 1) % weapon_slots.size()
-	print(String(slot_current))
 	
 	if not weapon_slots[slot_current]:
 		switch_to_next_weapon()
