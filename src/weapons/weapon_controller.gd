@@ -12,9 +12,9 @@ enum WeaponSlot {
 var weapon_slots : Dictionary = {
 	WeaponSlot.KNIFE: true,
 	WeaponSlot.PISTOL: true,
-	WeaponSlot.MACHINEGUN: false,
-	WeaponSlot.SHOTGUN: false,
-	WeaponSlot.ROCKETLAUNCHER: false
+	WeaponSlot.MACHINEGUN: true,
+	WeaponSlot.SHOTGUN: true,
+	WeaponSlot.ROCKETLAUNCHER: true
 }
 
 var slot_current : int = 0
