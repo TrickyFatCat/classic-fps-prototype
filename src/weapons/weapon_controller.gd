@@ -1,7 +1,7 @@
 class_name WeaponController
 extends Spatial
 
-enum Weapon {
+enum WeaponSlot {
 	KNIFE,
 	PISTOL,
 	MACHINEGUN,
@@ -10,11 +10,11 @@ enum Weapon {
 }
 
 var weapon_slots : Dictionary = {
-	Weapon.KNIFE: true,
-	Weapon.PISTOL: true,
-	Weapon.MACHINEGUN: false,
-	Weapon.SHOTGUN: false,
-	Weapon.ROCKETLAUNCHER: false
+	WeaponSlot.KNIFE: true,
+	WeaponSlot.PISTOL: true,
+	WeaponSlot.MACHINEGUN: false,
+	WeaponSlot.SHOTGUN: false,
+	WeaponSlot.ROCKETLAUNCHER: false
 }
 
 var slot_current : int = 0
@@ -30,7 +30,8 @@ func _ready() -> void:
 
 
 func switch_to_next_weapon() -> void:
-	slot_current = slot_current + 1 % weapon_slots.size()
+	slot_current = (slot_current + 1) % weapon_slots.size()
+	print(String(slot_current))
 	
 	if not weapon_slots[slot_current]:
 		switch_to_next_weapon()
